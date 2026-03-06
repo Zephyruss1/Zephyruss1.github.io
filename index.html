@@ -1,25 +1,818 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" data-theme="light">
+
 <head>
-  <title>Zephyrus | AI Engineer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zephyrus | AI Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            /* Full Dark Theme Layout */
+            --bg-main: #0e1015;
+            --bg-secondary: #16181d;
+            --text-main: #ffffff;
+            --text-muted: #a1a1aa;
+            --border-color: #2d313a;
+            --accent-color: #9b5cff;
+            --accent-hover: #b485ff;
+            --gradient-start: #9b5cff;
+            --gradient-end: #ff8a65;
+
+            /* Render.com Matching Button Styles */
+            --btn-primary-bg: #ffffff;
+            --btn-primary-text: #000000;
+            --btn-primary-hover: #e4e4e7;
+
+            --btn-secondary-bg: transparent;
+            --btn-secondary-text: #ffffff;
+            --btn-secondary-border: #ffffff;
+            --btn-secondary-hover: #ffffff;
+            --btn-secondary-hover-text: #000000;
+
+            --card-shadow: none;
+            --card-shadow-hover: 0 10px 30px -10px rgba(0, 0, 0, 0.4);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--accent-color);
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--accent-hover);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        .navbar {
+            padding: 1.25rem 0;
+            border-bottom: 1px solid var(--border-color);
+            background-color: var(--bg-main);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.35rem;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        /* Buttons (Render Style) */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            /* Space for icon */
+            padding: 0.875rem 1.75rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            border: 1px solid transparent;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: normal;
+            transition: transform 150ms ease, box-shadow 150ms ease, background-color 150ms ease, color 150ms ease;
+        }
+
+        .btn-arrow {
+            transition: transform 0.2s ease;
+        }
+
+        .btn:hover .btn-arrow {
+            transform: translateX(4px);
+        }
+
+        .btn-primary {
+            background-color: var(--btn-primary-bg);
+            color: var(--btn-primary-text);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--btn-primary-hover);
+            color: var(--btn-primary-text);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 14px 0 rgba(255, 255, 255, 0.39);
+        }
+
+        .btn-secondary {
+            background-color: var(--btn-secondary-bg);
+            color: var(--btn-secondary-text);
+            border-color: var(--btn-secondary-border);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--btn-secondary-hover);
+            color: var(--btn-secondary-hover-text);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 14px 0 rgba(255, 255, 255, 0.39);
+        }
+
+        .btn-arrow {
+            transition: transform 0.2s ease;
+            margin-left: 0.5rem;
+        }
+
+        .btn:hover .btn-arrow {
+            transform: translateX(6px);
+        }
+
+        .btn-accent {
+            background-color: var(--accent-color);
+            color: #ffffff;
+        }
+
+        .btn-accent:hover {
+            background-color: var(--accent-hover);
+            color: #ffffff;
+        }
+
+        .btn-icon {
+            padding: 0.5rem;
+            background: transparent;
+            color: var(--text-muted);
+            border: 1px solid transparent;
+            border-radius: 0px;
+            cursor: pointer;
+        }
+
+        .btn-icon:hover {
+            color: var(--text-main);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 0 6rem;
+            text-align: left;
+        }
+
+        .hero-content-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+        }
+
+        .hero-text {
+            flex: 1;
+            max-width: 650px;
+        }
+
+        .hero-image-container {
+            flex-shrink: 0;
+            width: 320px;
+            height: 320px;
+            border-radius: 0px;
+            /* Matching sharp Render aesthetics */
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .hero-image-container::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 1px solid var(--text-main);
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        .hero-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: grayscale(20%);
+            /* Slight professional muted look */
+            transition: filter 0.3s ease, transform 0.5s ease;
+        }
+
+        .hero-image-container:hover img {
+            filter: grayscale(0%);
+            transform: scale(1.02);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.35rem 1rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            border-radius: 0px;
+            margin-bottom: 2rem;
+            font-family: 'Fira Code', monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            letter-spacing: -2px;
+            line-height: 1.05;
+            margin-bottom: 1.5rem;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            line-height: 1.6;
+            margin-right: 1rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1.25rem;
+        }
+
+        /* Projects Section */
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 3rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 6rem;
+        }
+
+        .card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 0px;
+            padding: 2.5rem 2rem;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--card-shadow);
+        }
+
+        .card:hover {
+            border-color: var(--accent-color);
+            box-shadow: var(--card-shadow-hover);
+            transform: translateY(-4px);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 0px;
+            background-color: transparent;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-icon svg {
+            width: 32px;
+            height: 32px;
+            stroke-width: 1.5px;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.5px;
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            flex-grow: 1;
+            line-height: 1.6;
+        }
+
+        .tech-stack {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .tech-tag {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.6rem;
+            background-color: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            border-radius: 0px;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 4rem 0 3rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 2rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .hero-social-links {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-social-links a {
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.6rem;
+            border: 1px solid transparent;
+            border-radius: 0px;
+        }
+
+        .hero-social-links a:hover {
+            color: var(--text-main);
+            border-color: var(--text-main);
+            transform: translateY(-2px);
+        }
+
+        .hero-social-links svg {
+            width: 22px;
+            height: 22px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* Animated Background Canvas */
+        #vanta-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+        }
+
+        /* Elevate contents */
+        .navbar,
+        main,
+        .footer {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Hero Section Enhancements */
+        .hero {
+            padding: 8rem 0 6rem;
+            text-align: left;
+            position: relative;
+            display: flex;
+            align-items: center;
+            min-height: 80vh;
+        }
+
+        .hero-content-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+
+        /* Premium Polish */
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            letter-spacing: -2.5px;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            line-height: 1.7;
+            margin-right: 1rem;
+            max-width: 600px;
+        }
+
+        .hero-image-container {
+            flex-shrink: 0;
+            width: 260px;
+            height: 260px;
+            border-radius: 36px;
+            border: 8px solid var(--bg-main);
+            box-shadow: 0 0 0 3px var(--accent-color), 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+            position: relative;
+            background: var(--bg-main);
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hero-image-container:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 0 0 4px var(--accent-hover), 0 30px 50px -15px rgba(155, 92, 255, 0.4);
+            border-color: var(--bg-main);
+        }
+
+
+
+        .btn-secondary {
+            backdrop-filter: blur(10px);
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-badge {
+            border-radius: 6px;
+            padding: 0.5rem 1.2rem;
+            background: rgba(155, 92, 255, 0.1);
+            border: 1px solid rgba(155, 92, 255, 0.2);
+            color: var(--accent-color);
+        }
+
+        .card {
+            border-radius: 16px;
+            background: rgba(22, 24, 29, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .card:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-8px);
+        }
+
+        /* Responsive adjustments for new sizes */
+        @media (max-width: 900px) {
+            .hero-content-wrapper {
+                flex-direction: column-reverse;
+                align-items: center;
+                /* Center on mobile */
+                text-align: center;
+                gap: 3rem;
+            }
+
+            .hero p {
+                margin: 0 auto 3rem;
+            }
+
+            .hero-image-container {
+                width: 220px;
+                height: 220px;
+                border-width: 6px;
+                border-radius: 28px;
+            }
+
+            .hero-social-links {
+                justify-content: center;
+            }
+
+            .hero-actions {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<h1>Hello 👋</h1>
-<p>I am an AI & Data Engineer working with Python.</p>
+    <div id="vanta-bg"></div>
 
-<h2>Projects</h2>
+    <nav class="navbar">
+        <div class="container nav-content">
+            <div class="logo">Zephyrus<span>.</span></div>
+        </div>
+    </nav>
 
-<ul>
-<li>AI RAG Chatbot (LangChain)</li>
-<li>Shopify Product Scraper</li>
-<li>3D CNN Medical Image Model</li>
-<li>Pricing Optimization Model</li>
-</ul>
+    <main class="container">
+        <section class="hero">
+            <div class="hero-content-wrapper container">
+                <div class="hero-text">
+                    <div class="hero-badge">AI Developer</div>
+                    <h1>Hi, I'm <br> <span class="gradient-text">Zephyrus</span></h1>
+                    <p>Interesting computer engineer with 3 years of experience as a freelancer, focusing on Data and
+                        Artificial Intelligence. I have built many projects both independently and for my clients as a
+                        freelancer. Now, I am looking for a role where I can contribute and grow alongside team members.
+                    </p>
+                    <div class="hero-social-links">
+                        <a href="https://github.com/Zephyruss1" target="_blank" aria-label="GitHub">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path
+                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                </path>
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/akbar-babayev-817501294/" target="_blank"
+                            aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                </path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+                        <a href="https://www.upwork.com/freelancers/~013d63acc56d68c38c" target="_blank"
+                            aria-label="Upwork">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                stroke="none">
+                                <path
+                                    d="M17.48,6.06c-2.09,0-3.66,1.46-3.89,3.61c-0.65-1.54-1.2-3.23-1.57-5.01h-2.1v6.92c0,1.21-0.99,2.2-2.2,2.2 s-2.2-0.99-2.2-2.2V4.65h-2.1v6.92c0,2.37,1.93,4.3,4.3,4.3s4.3-1.93,4.3-4.3v-1.6c0.61,1.52,1.38,2.94,2.28,4.19l-1.31,4.55h2.2 l0.9-3.13c1.02,0.61,2.2,0.95,3.46,0.95c3.08,0,5.58-2.5,5.58-5.58C23.05,8.56,20.55,6.06,17.48,6.06z M17.48,14.73 c-2.04,0-3.7-1.66-3.7-3.7c0-2.04,1.66-3.7,3.7-3.7s3.7,1.66,3.7,3.7C21.18,13.07,19.52,14.73,17.48,14.73z" />
+                            </svg>
+                        </a>
+                        <a href="https://www.kaggle.com/zephyrus1" target="_blank" aria-label="Kaggle">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                stroke="none">
+                                <path
+                                    d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.246l-4.805-5.321-2.461 2.374v2.922c0 .164-.082.259-.246.259H5.056c-.164 0-.246-.095-.246-.259V.271c0-.164.082-.246.246-.246h2.345c.164 0 .246.082.246.246v15.228l6.832-7.514c.141-.141.281-.211.398-.211h3.314c.164 0 .223.059.187.187l-6.422 6.846 7.043 8.784c.082.105.105.199.07.281h-.244z" />
+                            </svg>
+                        </a>
+                        <a href="https://www.hackerrank.com/profile/Zephyrusss" target="_blank" aria-label="HackerRank">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                stroke="none">
+                                <path
+                                    d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.183 17.5h-2.181v-4.529h-3.951v4.529h-2.181v-11h2.181v4.618h3.951v-4.618h2.181v11z" />
+                            </svg>
+                        </a>
+                        <a href="mailto:ekber276@yahoo.com" target="_blank" aria-label="Email">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                </path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="hero-actions">
+                        <a href="#projects" class="btn btn-primary"
+                            style="display: inline-flex; align-items: center; justify-content: center;">
+                            See Projects
+                            <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <div class="hero-image-container">
+                        <img src="1744999112749.jpeg" alt="Zephyrus Profile Picture" width="320" height="320">
+                    </div>
+                    <p
+                        style="text-align: center; font-style: italic; font-weight: bold; margin-top: 1rem; color: var(--text-main);">
+                        Akbar Babayev</p>
+                </div>
+            </div>
+        </section>
 
-<h2>Contact</h2>
+        <section id="projects" class="projects-section">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
 
-<p>GitHub: https://github.com/yourusername</p>
+                <div class="card">
+                    <div class="card-icon">
+                        <!-- Activity/Chart icon for Logistic Regression -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                        </svg>
+                    </div>
+                    <h3><a href="https://github.com/Zephyruss1/Logistic_Regression" target="_blank"
+                            style="color: inherit; text-decoration: none;">Logistic Regression</a></h3>
+                    <p>A statistical model for binary classification, focusing on probability prediction and decision
+                        boundary analysis.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Machine Learning</span>
+                    </div>
+                </div>
 
+                <div class="card">
+                    <div class="card-icon">
+                        <!-- Brain icon for Fine-Tuning/LLM -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z">
+                            </path>
+                            <path
+                                d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3><a href="https://github.com/Zephyruss1/Instruction-SFT-NEFTUNE" target="_blank"
+                            style="color: inherit; text-decoration: none;">Instruction SFT NEFTUNE</a></h3>
+                    <p>Implementing Supervised Fine-Tuning with the NEFTUNE technique to enhance Large Language Model
+                        generalization.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Jupyter Notebook</span>
+                        <span class="tech-tag">LLMs</span>
+                        <span class="tech-tag">Fine-Tuning</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">
+                        <!-- Message circle for NLP -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
+                        </svg>
+                    </div>
+                    <h3><a href="https://github.com/Zephyruss1/NLP-Similarity-Turkish" target="_blank"
+                            style="color: inherit; text-decoration: none;">NLP Similarity Turkish</a></h3>
+                    <p>This repo produces resources and models about NLP Tasks specifically focusing on the Turkish
+                        language.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Jupyter Notebook</span>
+                        <span class="tech-tag">NLP</span>
+                        <span class="tech-tag">Turkish</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">
+                        <!-- Newspaper icon for News Classification -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2">
+                            </path>
+                            <path d="M18 14h-8"></path>
+                            <path d="M15 18h-5"></path>
+                            <path d="M10 6h8v4h-8V6Z"></path>
+                        </svg>
+                    </div>
+                    <h3><a href="https://github.com/Zephyruss1/News-Classification-and-Sentiment-Analysis"
+                            target="_blank" style="color: inherit; text-decoration: none;">News Classification &
+                            Sentiment</a></h3>
+                    <p>A dedicated pipeline for classifying news articles and performing detailed sentiment analysis.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Jupyter Notebook</span>
+                        <span class="tech-tag">NLP</span>
+                        <span class="tech-tag">Classification</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">
+                        <!-- Network/Nodes icon for Deep Learning -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="18" cy="5" r="3"></circle>
+                            <circle cx="6" cy="12" r="3"></circle>
+                            <circle cx="18" cy="19" r="3"></circle>
+                            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                        </svg>
+                    </div>
+                    <h3><a href="https://github.com/Zephyruss1/Predicting-Next-Sentences" target="_blank"
+                            style="color: inherit; text-decoration: none;">Predicting Next Sentences</a></h3>
+                    <p>Training neural network models to predict the next sentence in a sequence using deep learning
+                        context windows.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Jupyter Notebook</span>
+                        <span class="tech-tag">Deep Learning</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">
+                        <!-- Hexagon/Box icon for Next.js/RAG App -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                            </path>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                        </svg>
+                    </div>
+                    <h3><a href="https://github.com/Zephyruss1/AI-Agent-RAG-Nextjs" target="_blank"
+                            style="color: inherit; text-decoration: none;">AI Agent RAG Nextjs</a></h3>
+                    <p>An AI agent integrating Retrieval-Augmented Generation (RAG) capabilities, built with a modern
+                        Next.js frontend.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Next.js</span>
+                        <span class="tech-tag">RAG</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>&copy; <span id="year"></span> Zephyrus. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+    <script>
+        // Set current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Initialize Vanta Background (Dark Mode only)
+        VANTA.NET({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0xff3f81,
+            backgroundColor: 0x23153c,
+            points: 10.00,
+            maxDistance: 20.00,
+            spacing: 15.00,
+            showDots: true
+        });
+    </script>
 </body>
+
 </html>
