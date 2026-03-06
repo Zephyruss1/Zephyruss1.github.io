@@ -1,25 +1,334 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>Zephyrus | AI Engineer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akbar Babayev — AI Engineer</title>
+    <meta name="description" content="Akbar Babayev (Zephyrus) — AI Engineer portfolio.">
+    <style>
+        :root {
+            --bg: #0f1115;
+            --text: #e2e4e9;
+            --text-muted: #8b929e;
+            --link: #79a8ff;
+            --border: #232730;
+        }
+
+        @media (prefers-color-scheme: light) {
+            :root {
+                --bg: #ffffff;
+                --text: #1a1a1a;
+                --text-muted: #666666;
+                --link: #0969da;
+                --border: #e1e4e8;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            font-size: 15px;
+            line-height: 1.65;
+            color: var(--text);
+            background-color: var(--bg);
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 3rem 1.25rem 4rem;
+        }
+
+        a {
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        header {
+            margin-bottom: 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+
+        .header-info h1 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 0.25rem;
+        }
+
+        .header-info .title {
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 0.85rem;
+            font-size: 0.9rem;
+        }
+
+        .contact-links span {
+            color: var(--text-muted);
+        }
+
+        .avatar {
+            width: 88px;
+            height: 88px;
+            border-radius: 6px;
+            object-fit: cover;
+            border: 1px solid var(--border);
+            flex-shrink: 0;
+        }
+
+        section {
+            margin-bottom: 2.5rem;
+        }
+
+        h2 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.35rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 0.85rem;
+        }
+
+        .item {
+            margin-bottom: 1.5rem;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .item-title {
+            font-weight: 600;
+        }
+
+        .item-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            white-space: nowrap;
+        }
+
+        .item-sub {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .item p {
+            margin-bottom: 0.35rem;
+        }
+
+        .tech-list {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ul.projects-list li {
+            margin-bottom: 1.1rem;
+        }
+
+        .project-name {
+            font-weight: 600;
+        }
+
+        .cv-btn {
+            display: inline-block;
+            margin-top: 0.85rem;
+            padding: 0.35rem 0.75rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text);
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            text-decoration: none;
+        }
+
+        .cv-btn:hover {
+            border-color: var(--link);
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+    </style>
 </head>
+
 <body>
 
-<h1>Hello 👋</h1>
-<p>I am an AI & Data Engineer working with Python.</p>
+    <header>
+        <div class="header-info">
+            <h1>Akbar Babayev</h1>
+            <div class="title">AI Engineer &middot; Istanbul, Turkey</div>
+            <div class="contact-links">
+                <a href="mailto:ekber276@gmail.com">ekber276@gmail.com</a>
+                <span>&middot;</span>
+                <a href="https://github.com/Zephyruss1" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <span>&middot;</span>
+                <a href="https://www.linkedin.com/in/akbar-babayev-817501294/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <span>&middot;</span>
+                <a href="https://www.upwork.com/freelancers/~013d63acc56d68c38c" target="_blank" rel="noopener noreferrer">Upwork</a>
+                <span>&middot;</span>
+                <a href="https://www.kaggle.com/zephyrus1" target="_blank" rel="noopener noreferrer">Kaggle</a>
+                <span>&middot;</span>
+                <a href="https://www.hackerrank.com/profile/Zephyrusss" target="_blank" rel="noopener noreferrer">HackerRank</a>
+            </div>
+            <a class="cv-btn" href="cv1.pdf" download="Akbar_Babayev_CV.pdf">Download CV &darr;</a>
+        </div>
+        <img class="avatar" src="1744999112749.jpeg" alt="Akbar Babayev">
+    </header>
 
-<h2>Projects</h2>
+    <section id="about">
+        <h2>About</h2>
+        <p>
+            Passionate computer engineer with 3 years of experience as a freelancer, specializing in Artificial Intelligence and Large Language Models (LLMs). I have built numerous projects both independently and for clients. Now, I am looking for a full-time role where I can contribute to complex engineering challenges and grow alongside a collaborative team.
+        </p>
+    </section>
 
-<ul>
-<li>AI RAG Chatbot (LangChain)</li>
-<li>Shopify Product Scraper</li>
-<li>3D CNN Medical Image Model</li>
-<li>Pricing Optimization Model</li>
-</ul>
+    <section id="experience">
+        <h2>Work Experience</h2>
 
-<h2>Contact</h2>
+        <div class="item">
+            <div class="item-header">
+                <span class="item-title">Freelance AI/ML Engineer</span>
+                <span class="item-date">Nov 2024 &mdash; Present</span>
+            </div>
+            <p>
+                Building production-ready AI automation systems that power real business operations, integrating autonomous agents with advanced RAG, KAG, and CAG retrieval pipelines. My work focuses on LLM post-training&mdash;leveraging LoRA, supervised fine-tuning (SFT), and NEFTune noise embeddings&mdash;alongside end-to-end NLP solutions designed to process, analyze, and evaluate massive text corpora.
+            </p>
+            <div class="tech-list">Autonomous Agents, RAG / KAG / CAG, LoRA, SFT, NEFTune, NLP</div>
+        </div>
 
-<p>GitHub: https://github.com/yourusername</p>
+        <div class="item">
+            <div class="item-header">
+                <span class="item-title">Software Engineer</span>
+                <span class="item-date">May 2026 &mdash; Present</span>
+            </div>
+            <p>
+                Architecting end-to-end POS automation infrastructure built to withstand high-volume restaurant environments, featuring resilient multi-platform order aggregations, automated fiscal and thermal receipt dispatching, and live inventory sync to eliminate operational bottlenecks.
+            </p>
+            <div class="tech-list">POS Automation, Order Aggregation, Fiscal/Thermal Dispatch, Inventory Sync</div>
+        </div>
+
+        <div class="item">
+            <div class="item-header">
+                <span class="item-title">Researcher</span>
+                <span class="item-date">Sep 2026 &mdash; Present</span>
+            </div>
+            <p>
+                AI Researcher focused on low-resource and agglutinative language challenges, with an emphasis on Korean NLP. Investigating tokenization strategies, morphological parsing, and LLM fine-tuning pipelines on complex Korean corpora.
+            </p>
+            <div class="tech-list">Korean NLP, Tokenization, Morphological Parsing, Agglutinative Languages</div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <ul class="projects-list">
+            <li>
+                <div>
+                    <a class="project-name" href="https://github.com/Zephyruss1/Instruction-SFT-NEFTUNE" target="_blank" rel="noopener noreferrer">Instruction-SFT-NEFTUNE</a>
+                </div>
+                <p>Supervised Fine-Tuning (SFT) implementation leveraging NEFTune noise embeddings to enhance LLM instruction generalization.</p>
+                <div class="tech-list">Python, LLMs, Fine-Tuning, LoRA, NEFTune</div>
+            </li>
+            <li>
+                <div>
+                    <a class="project-name" href="https://github.com/Zephyruss1/AI-Agent-RAG-Nextjs" target="_blank" rel="noopener noreferrer">AI-Agent-RAG-Nextjs</a>
+                </div>
+                <p>Autonomous AI agent system integrating Retrieval-Augmented Generation (RAG) with a Next.js frontend.</p>
+                <div class="tech-list">Python, Next.js, RAG, Autonomous Agents</div>
+            </li>
+            <li>
+                <div>
+                    <a class="project-name" href="https://github.com/Zephyruss1/NLP-Similarity-Turkish" target="_blank" rel="noopener noreferrer">NLP-Similarity-Turkish</a>
+                </div>
+                <p>Pipelines, datasets, and models for semantic text similarity and NLP benchmarks in the Turkish language.</p>
+                <div class="tech-list">Python, NLP, Turkish, Semantic Similarity</div>
+            </li>
+            <li>
+                <div>
+                    <a class="project-name" href="https://github.com/Zephyruss1/News-Classification-and-Sentiment-Analysis" target="_blank" rel="noopener noreferrer">News-Classification-and-Sentiment-Analysis</a>
+                </div>
+                <p>End-to-end pipeline for news article topic classification and multi-aspect sentiment analysis.</p>
+                <div class="tech-list">Python, NLP, Classification, Sentiment Analysis</div>
+            </li>
+            <li>
+                <div>
+                    <a class="project-name" href="https://github.com/Zephyruss1/Predicting-Next-Sentences" target="_blank" rel="noopener noreferrer">Predicting-Next-Sentences</a>
+                </div>
+                <p>Neural network sequential model trained to evaluate context windows and predict consecutive sentence sequences.</p>
+                <div class="tech-list">Python, Deep Learning, PyTorch, Sequence Modeling</div>
+            </li>
+            <li>
+                <div>
+                    <a class="project-name" href="https://github.com/Zephyruss1/Logistic_Regression" target="_blank" rel="noopener noreferrer">Logistic_Regression</a>
+                </div>
+                <p>Statistical binary classification implementation focusing on probability estimation and decision boundary analysis.</p>
+                <div class="tech-list">Python, Machine Learning, Statistics</div>
+            </li>
+        </ul>
+    </section>
+
+
+    <section id="education">
+        <h2>Education</h2>
+        <div class="item">
+            <div class="item-header">
+                <span class="item-title">MSc. Korean Language and Literature</span>
+                <span class="item-date">Sep 2026 &mdash; Present</span>
+            </div>
+            <div class="item-sub">Erciyes University</div>
+            <p>Note: Building NLP pipelines on Korean language</p>
+        </div>
+
+        <div class="item">
+            <div class="item-header">
+                <span class="item-title">B.Sc. Korean Language and Literature</span>
+                <span class="item-date">Sep 2020 &mdash; Jul 2026</span>
+            </div>
+            <div class="item-sub">Erciyes University</div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; Akbar Babayev &middot; <a href="https://github.com/Zephyruss1/Zephyruss1.github.io">Source</a></p>
+    </footer>
 
 </body>
+
 </html>
